@@ -1,0 +1,12 @@
+Test,Status
+Normal scoring,PASS
+Invalid data detected,PASS
+Duplicate ID detected,PASS
+Negative cost detected,PASS
+Negative lead detected,PASS
+Invalid percentage detected,PASS
+Bad weights blocked,PASS
+Identical criterion safe,PASS
+Scale scoring,PASS
+Scenario recalculates,PASS
+AI fallback configured,PASS
