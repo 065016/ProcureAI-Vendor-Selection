@@ -72,7 +72,7 @@ elif page=="AI Assistant":
   name=st.selectbox("Focus vendor",scored.Vendor_Name); q=st.text_area("Question",f"Why is {name} ranked where it is and what should procurement consider?"); v=scored[scored.Vendor_Name==name].iloc[0]
   if st.button("Analyze with Gemini",type="primary"):
    ans,err=get_gemini_response({"selected_vendor":v.to_dict(),"top_vendors":scored.head(3).to_dict("records"),"weights":weights},q)
-      if err:
+     if err:
     st.warning(err)
    else:
     st.markdown(ans)
