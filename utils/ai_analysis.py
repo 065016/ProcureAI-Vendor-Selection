@@ -16,7 +16,7 @@ def get_gemini_response(context, question):
     key = os.getenv("GEMINI_API_KEY")
 
     if not key:
-        return None, "Gemini is not configured. Add GEMINI_API_KEY to Streamlit Secrets/environment."
+        return None, "Gemini is currently unavailable. Deterministic procurement analytics remain available."
 
     try:
         from google import genai
@@ -45,5 +45,5 @@ def get_gemini_response(context, question):
 
         return response.text, None
 
-    except Exception as e:
-        return None, f"Gemini unavailable: {type(e).__name__}: {e}"
+    except Exception:
+        return None, "Gemini is currently unavailable. Deterministic procurement analytics remain available."
