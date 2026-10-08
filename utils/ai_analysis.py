@@ -9,5 +9,5 @@ def get_gemini_response(context,question):
   client=genai.Client(api_key=key); model=os.getenv("GEMINI_MODEL","gemini-3.8-flash")
   prompt=SYSTEM_PROMPT+"\n\nSTRUCTURED DATA:\n"+json.dumps(context,default=str)+"\n\nQUESTION:\n"+question+"\n\nEnd with: This is a decision-support recommendation and not an autonomous procurement decision."
   r=client.models.generate_content(model=model,contents=prompt,config=types.GenerateContentConfig(temperature=.2,max_output_tokens=900))
-  return r.text,None
- except Exception as e:return None,f"Gemini unavailable; deterministic analytics remain available. {type(e).__name__}"
+except Exception as e:
+    return None, f"Gemini unavailable: {type(e).__name__}: {e}"
